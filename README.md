@@ -48,6 +48,36 @@ céntimos.
 
 ---
 
+## Antes de impartirlo
+
+Cosas que hay que dejar resueltas y que, si se descubren en clase, cuestan la sesión entera.
+Cada notebook lleva estos avisos donde tocan, aquí van juntos.
+
+**Para la sesión 1 · un servidor de referencia desplegado.** El bloque del protocolo a mano
+necesita una URL contra la que hablar, y en ese punto el alumno todavía no ha desplegado nada.
+Despliega este repositorio antes de clase y reparte la URL. Si los veinte alumnos tienen que
+desplegar antes de ver un solo mensaje del protocolo, la sesión se convierte en soporte técnico
+de `gcloud`.
+
+**Para la sesión 1 · proyectos con facturación.** Que cada alumno llegue con su proyecto GCP
+listo. Los 25 minutos del bloque de despliegue dan para desplegar, no para crear cuentas y
+esperar aprobaciones de facturación.
+
+**Para la sesión 3 · credenciales de OAuth.** Es la única sesión que no se puede improvisar.
+Hace falta un OAuth 2.0 Client ID con su pantalla de consentimiento, la cuenta de servicio de
+Cloud Run con `roles/iam.serviceAccountTokenCreator` si se hace la parte de suplantación, y un
+documento CIMD publicado si se prueba el flujo de cliente completo.
+
+> **Estado del código de la sesión 3:** está escrito contra la API real del SDK 2.0.0, pero el
+> flujo de extremo a extremo **no se ha verificado en este repositorio**, porque depende de esas
+> credenciales. Es el esqueleto correcto, no algo que funcione a la primera. Pruébalo antes de
+> dar la clase. El resto del curso sí está ejecutado y verificado contra el SDK.
+
+**Marcadores que hay que sustituir.** Las celdas marcadas con `← EDITAR` llevan project IDs,
+URLs de servicio y client IDs de ejemplo.
+
+---
+
 ## Cómo está montado
 
 ```
