@@ -91,9 +91,10 @@ curso_mcp/                  Paquete del curso, importado por los notebooks
 ├── bq.py                   Acceso a BigQuery, con dry run y límite de escaneo
 ├── widget.py               Extensión MCP Apps y el HTML del widget
 └── extension_auditoria.py  Una extensión propia, escrita desde cero
-deploy/                     Lo necesario para Cloud Run
+Dockerfile                  En la RAÍZ: si está en un subdirectorio,
+                            gcloud cae a Buildpacks y el despliegue falla
+deploy/
 ├── main.py                 Punto de entrada ASGI
-├── Dockerfile
 └── requirements.txt
 notebooks/                  Un notebook por sesión
 ```
