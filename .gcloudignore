@@ -1,0 +1,12 @@
+# Lo que no necesita el contenedor. Reduce el contexto que se sube a Cloud Build.
+.git/
+.gitignore
+notebooks/
+README.md
+TEMARIO.md
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+venv/
+.venv/

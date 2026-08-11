@@ -55,9 +55,14 @@ Cada notebook lleva estos avisos donde tocan, aquí van juntos.
 
 **Para la sesión 1 · un servidor de referencia desplegado.** El bloque del protocolo a mano
 necesita una URL contra la que hablar, y en ese punto el alumno todavía no ha desplegado nada.
-Despliega este repositorio antes de clase y reparte la URL. Si los veinte alumnos tienen que
-desplegar antes de ver un solo mensaje del protocolo, la sesión se convierte en soporte técnico
-de `gcloud`.
+Hay uno en marcha en `codecrypto-ai` y el notebook 1 ya apunta a él; si lo cambias de sitio,
+actualiza esa celda. Si los veinte alumnos tienen que desplegar antes de ver un solo mensaje
+del protocolo, la sesión se convierte en soporte técnico de `gcloud`.
+
+**El `Dockerfile` va en la raíz, y es a propósito.** `gcloud run deploy --source .` solo usa
+Docker si encuentra el `Dockerfile` al nivel del directorio que se sube. Si no está ahí, cae a
+Buildpacks, que para Python busca un `main.py` o un `app.py` en la raíz y falla con
+`build failed; check build logs`. Moverlo a un subdirectorio rompe el despliegue.
 
 **Para la sesión 1 · proyectos con facturación.** Que cada alumno llegue con su proyecto GCP
 listo. Los 25 minutos del bloque de despliegue dan para desplegar, no para crear cuentas y
