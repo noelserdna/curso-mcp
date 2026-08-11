@@ -55,9 +55,9 @@ Cada notebook lleva estos avisos donde tocan, aquí van juntos.
 
 **Para la sesión 1 · un servidor de referencia desplegado.** El bloque del protocolo a mano
 necesita una URL contra la que hablar, y en ese punto el alumno todavía no ha desplegado nada.
-Hay uno en marcha en `codecrypto-ai` y el notebook 1 ya apunta a él; si lo cambias de sitio,
-actualiza esa celda. Si los veinte alumnos tienen que desplegar antes de ver un solo mensaje
-del protocolo, la sesión se convierte en soporte técnico de `gcloud`.
+Despliega este repositorio antes de clase y reparte la URL; la celda correspondiente lleva un
+marcador `PON-AQUI-LA-URL`. Si los veinte alumnos tienen que desplegar antes de ver un solo
+mensaje del protocolo, la sesión se convierte en soporte técnico de `gcloud`.
 
 **El `Dockerfile` va en la raíz, y es a propósito.** `gcloud run deploy --source .` solo usa
 Docker si encuentra el `Dockerfile` al nivel del directorio que se sube. Si no está ahí, cae a
@@ -131,6 +131,20 @@ gcloud run deploy curso-mcp --source . --region europe-west1 --allow-unauthentic
 ```
 
 `--allow-unauthenticated` es deliberado y **temporal**: la sesión 3 cierra la puerta.
+
+### Borrarlo todo
+
+Los notebooks 1 y 4 terminan con una sección de limpieza. En resumen:
+
+```bash
+gcloud run services delete curso-mcp --region europe-west1 --quiet
+gcloud artifacts docker images delete \
+  europe-west1-docker.pkg.dev/TU-PROYECTO/cloud-run-source-deploy/curso-mcp \
+  --delete-tags --quiet
+```
+
+> El repositorio `cloud-run-source-deploy` lo comparten **todos** los servicios del proyecto
+> desplegados con `--source`. Borra la imagen del curso, nunca el repositorio.
 
 ---
 
